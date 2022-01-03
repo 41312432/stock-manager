@@ -1,0 +1,34 @@
+@value main-white, highlight-orange, main-green-darkest from '../../styles/variables.css';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px 24px;
+}
+.logo {
+  color: var(--main-darker);
+  font-size: 2.5rem;
+  margin: 0 16px;
+}
+.helper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: main-white;
+  background-color: main-green-darkest;
+  padding: 0;
+  border: 0;
+  margin-right: 20px;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  font-size: 1.5em;
+  transition: transform 0.1s ease-in;
+}
+.helper:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: highlight-orange;
+}
