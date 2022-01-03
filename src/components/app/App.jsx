@@ -1,10 +1,13 @@
+import { useState } from "react";
+import Content from "../content/content";
 import Header from "../header/header";
-import styles from "./App.module.css";
+import styles from "./App.scss";
 
 function App() {
   return (
-    <div className={styles.App}>
+    <div className="App">
       <Header />
+      <Content />
     </div>
   );
 }
