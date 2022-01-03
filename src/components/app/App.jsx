@@ -1,13 +1,13 @@
 import { useState } from "react";
-import Content from "../content/content";
+import "./App.scss";
 import Header from "../header/header";
-import styles from "./App.scss";
+import TabContainer from "../tab/tab_container";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Content />
+      <TabContainer />
     </div>
   );
 }
