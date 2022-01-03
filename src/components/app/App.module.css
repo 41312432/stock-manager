@@ -1,0 +1,16 @@
+@value container-beige from '../../styles/variables.css';
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: tomato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: container-beige;
+}
