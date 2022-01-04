@@ -18,6 +18,20 @@ table {
     border-bottom: 3px double $table-border;
   }
 
+  thead {
+    tr {
+      :first-child {
+        width: 6em;
+      }
+      :nth-child(2) {
+        width: 10em;
+      }
+      :last-child {
+        width: 3em;
+      }
+    }
+  }
+
   tr,
   td {
     border: 1px solid $table-border;
