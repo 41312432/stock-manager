@@ -37,6 +37,10 @@
       font-weight: 700;
       background-color: $tab-selected-background;
       color: $tab-selected-color;
+
+      &:hover {
+        background-color: $tab-selected-background;
+      }
     }
   }
 
