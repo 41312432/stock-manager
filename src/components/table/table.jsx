@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import "./table.scss";
 import { useTable } from "react-table";
+import ItemContainer from "../item_container/item_container";
 
 const Table = (props) => {
   function useInstance(instance) {
@@ -24,43 +25,37 @@ const Table = (props) => {
       {
         col1: "케이크",
         col2: "생크림",
-        col3: <button></button>,
+        col3: <ItemContainer />,
         col4: <button></button>,
       },
       {
         col1: "케이크",
-        col2: "딸기",
-        col3: <button></button>,
+        col2: "생크림",
+        col3: <ItemContainer />,
         col4: <button></button>,
       },
       {
         col1: "케이크",
-        col2: "딸기",
-        col3: <button></button>,
+        col2: "생크림",
+        col3: <ItemContainer />,
         col4: <button></button>,
       },
       {
         col1: "케이크",
-        col2: "딸기",
-        col3: <button></button>,
-        col4: <button></button>,
-      },
-      {
-        col1: "케이크",
-        col2: "치즈",
-        col3: <button></button>,
+        col2: "생크림",
+        col3: <ItemContainer />,
         col4: <button></button>,
       },
       {
         col1: "마카롱",
         col2: "유자",
-        col3: <button></button>,
+        col3: <ItemContainer />,
         col4: <button></button>,
       },
       {
         col1: "마카롱",
         col2: "흑임자",
-        col3: <button></button>,
+        col3: <ItemContainer />,
         col4: <button></button>,
       },
     ],
