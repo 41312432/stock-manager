@@ -1,0 +1,22 @@
+@import "../../styles/variables.scss";
+
+.edit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: $button-color;
+  padding: 0;
+  border: 1px solid $button-color;
+  border-radius: 10px;
+  margin: auto;
+  width: 2.5em;
+  height: 2.5em;
+  font-size: 1em;
+  transition: transform 0.1s ease-in;
+  &:hover {
+    border: none;
+    transform: scale(1.1);
+    background-color: $button-hover-color;
+  }
+}

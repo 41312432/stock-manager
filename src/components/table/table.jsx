@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import "./table.scss";
 import { useTable } from "react-table";
 import ItemContainer from "../item_container/item_container";
+import EditButton from "../edit_button/edit_button";
 
 const Table = (props) => {
   function useInstance(instance) {
@@ -26,37 +27,91 @@ const Table = (props) => {
         col1: "케이크",
         col2: "생크림",
         col3: <ItemContainer />,
-        col4: <button></button>,
+        col4: <EditButton />,
       },
       {
         col1: "케이크",
-        col2: "생크림",
+        col2: "딸기",
         col3: <ItemContainer />,
-        col4: <button></button>,
+        col4: <EditButton />,
       },
       {
         col1: "케이크",
-        col2: "생크림",
+        col2: "망고",
         col3: <ItemContainer />,
-        col4: <button></button>,
+        col4: <EditButton />,
       },
       {
         col1: "케이크",
-        col2: "생크림",
+        col2: "치즈",
         col3: <ItemContainer />,
-        col4: <button></button>,
+        col4: <EditButton />,
+      },
+      {
+        col1: "케이크",
+        col2: "티라미스",
+        col3: <ItemContainer />,
+        col4: <EditButton />,
       },
       {
         col1: "마카롱",
         col2: "유자",
         col3: <ItemContainer />,
-        col4: <button></button>,
+        col4: <EditButton />,
       },
       {
         col1: "마카롱",
         col2: "흑임자",
         col3: <ItemContainer />,
-        col4: <button></button>,
+        col4: <EditButton />,
+      },
+      {
+        col1: "마카롱",
+        col2: "흑임자",
+        col3: <ItemContainer />,
+        col4: <EditButton />,
+      },
+      {
+        col1: "마카롱",
+        col2: "흑임자",
+        col3: <ItemContainer />,
+        col4: <EditButton />,
+      },
+      {
+        col1: "마카롱",
+        col2: "흑임자",
+        col3: <ItemContainer />,
+        col4: <EditButton />,
+      },
+      {
+        col1: "마카롱",
+        col2: "흑임자",
+        col3: <ItemContainer />,
+        col4: <EditButton />,
+      },
+      {
+        col1: "마카롱",
+        col2: "흑임자",
+        col3: <ItemContainer />,
+        col4: <EditButton />,
+      },
+      {
+        col1: "마카롱",
+        col2: "흑임자",
+        col3: <ItemContainer />,
+        col4: <EditButton />,
+      },
+      {
+        col1: "마카롱",
+        col2: "흑임자",
+        col3: <ItemContainer />,
+        col4: <EditButton />,
+      },
+      {
+        col1: "마카롱",
+        col2: "흑임자",
+        col3: <ItemContainer />,
+        col4: <EditButton />,
       },
     ],
     []
