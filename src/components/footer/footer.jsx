@@ -2,9 +2,9 @@ import React from "react";
 import "./footer.scss";
 
 const Footer = (props) => (
-  <footer class="footer">
-    <div class="divider"></div>
-    <div class="container">
+  <footer className="footer">
+    <div className="divider"></div>
+    <div className="container">
       <div>
         <p>
           <strong>줄리브 원주혁신도시점</strong>
