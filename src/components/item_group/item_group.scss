@@ -1,0 +1,24 @@
+@import "../../styles/variables.scss";
+
+.item-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  border: 2.5px solid $item-group-border;
+  min-width: 5rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  padding: 0 5px;
+  margin: 5px;
+  transition: 0.2s ease-in;
+  &:hover {
+    background-color: $item-group-hover-background;
+  }
+  img {
+    padding: 0 3px;
+    height: 2rem;
+    width: 2.5rem;
+    filter: opacity(0.5) drop-shadow(0 0 0 $main-black);
+  }
+}

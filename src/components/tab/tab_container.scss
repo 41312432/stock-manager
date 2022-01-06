@@ -1,0 +1,58 @@
+@import "../../styles/variables.scss";
+
+.react-tabs {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0px 12px 12px 0px;
+
+  &__tab-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 0;
+  }
+
+  &__tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px 0;
+    width: 8vw;
+    height: 4rem;
+    transition: 0.2s;
+    background-color: $tab-background;
+    color: $tab-color;
+    cursor: pointer;
+
+    &:hover {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background-color: $tab-hover-background;
+      color: $tab-selected-color;
+    }
+
+    &--selected {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background-color: $tab-selected-background;
+      color: $tab-selected-color;
+
+      &:hover {
+        background-color: $tab-selected-background;
+      }
+    }
+  }
+
+  &__tab-panel {
+    flex: 1;
+    display: none;
+    border-radius: 32px;
+    padding: 16px;
+    background-color: $section-background;
+
+    &--selected {
+      display: flex;
+    }
+  }
+}
