@@ -1,21 +1,34 @@
-import React from "react";
 import "./tab_container.scss";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Section from "../section/section";
 
-const TabContainer = (props) => (
-  <Tabs>
-    <TabList>
-      <Tab>Tab1</Tab>
-      <Tab>Tab 2</Tab>
-    </TabList>
-    <TabPanel>
-      <Section />
-    </TabPanel>
-    <TabPanel>
-      <Section />
-    </TabPanel>
-  </Tabs>
-);
+const TabContainer = ({ storage }) => {
+  return (
+    <Tabs>
+      <TabList>
+        <Tab>쇼케이스</Tab>
+        <Tab>냉장</Tab>
+        <Tab>냉동</Tab>
+        <Tab>실온</Tab>
+        <Tab>창고</Tab>
+      </TabList>
+      <TabPanel>
+        <Section storage={storage} storageType={"showCase"} />
+      </TabPanel>
+      <TabPanel>
+        <Section storage={storage} storageType={"refridge"} />
+      </TabPanel>
+      <TabPanel>
+        <Section storage={storage} storageType={"freezer"} />
+      </TabPanel>
+      <TabPanel>
+        <Section storage={storage} storageType={"bar"} />
+      </TabPanel>
+      <TabPanel>
+        <Section storage={storage} storageType={"inven"} />
+      </TabPanel>
+    </Tabs>
+  );
+};
 
 export default TabContainer;
