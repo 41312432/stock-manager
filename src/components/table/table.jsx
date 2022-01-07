@@ -4,20 +4,16 @@ import { useTable } from "react-table";
 import ItemContainer from "../item_container/item_container";
 import EditButton from "../edit_button/edit_button";
 
-const Table = (props) => {
+const Table = ({ stock }) => {
   function useInstance(instance) {
     const { allColumns } = instance;
-
     let rowSpanHeaders = [];
-
     allColumns.forEach((column) => {
       const { id, enableRowSpan } = column;
-
       if (enableRowSpan) {
         rowSpanHeaders.push({ id, topCellValue: null, topCellIndex: 0 });
       }
     });
-
     Object.assign(instance, { rowSpanHeaders });
   }
 

@@ -3,11 +3,11 @@ import Header from "../header/header";
 import TabContainer from "../tab/tab_container";
 import Footer from "../footer/footer";
 
-function App() {
+function App({ storage }) {
   return (
     <div className="App">
       <Header />
-      <TabContainer />
+      <TabContainer storage={storage} />
       <Footer />
     </div>
   );
