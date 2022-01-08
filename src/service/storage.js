@@ -34,8 +34,17 @@ class Storage {
     return () => off(query);
   }
 
-  updateStock(property, itemType, item) {
-    set(ref(this.db, `stock/${property}/${itemType}/${item.id}`), item);
+  syncItemProperties(onUpdate) {
+    const query = ref(this.db, `property`);
+    onValue(query, (snapshot) => {
+      const value = snapshot.val();
+      value && onUpdate(value);
+    });
+    return () => off(query);
+  }
+
+  updateStock(storageType, itemType, item) {
+    set(ref(this.db, `stock/${storageType}/${itemType}/${item.id}`), item);
   }
 
   updateProperty(largeItemType, property) {

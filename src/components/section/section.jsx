@@ -1,10 +1,11 @@
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import Table from "../table/table";
 import Top from "../top/top";
 import "./section.scss";
 
-const Section = ({ storage, storageType }) => {
-  const [stock, setStock] = useState([]);
+const Section = ({ storage, storageType, itemProperties }) => {
+  const [stock, setStock] = useState({});
 
   useEffect(() => {
     const stopSync = storage.syncStocksByStorageType((stock) => {
@@ -15,23 +16,12 @@ const Section = ({ storage, storageType }) => {
     };
   }, []);
 
-  console.log(
-    storage.readProperty("strawberryCake").then((result) => console.log(result))
-  );
-
-  const updateStockItem = (itemType, item) => {
-    setStock((stock) => {
-      const updated = { ...stock };
-      updated[itemType] = { ...updated[itemType], item };
-      return updated;
-    });
-    storage.updateStock(itemType, item);
-  };
+  //어차피 stock은 storageType으로 걸러져서 들어온 stock이니까 그리는데는 문제가 없고...
 
   return (
     <section className="section">
       <Top />
-      <Table stock={stock} />
+      <Table stock={stock} itemProperties={itemProperties} />
     </section>
   );
 };

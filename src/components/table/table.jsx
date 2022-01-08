@@ -4,7 +4,7 @@ import { useTable } from "react-table";
 import ItemContainer from "../item_container/item_container";
 import EditButton from "../edit_button/edit_button";
 
-const Table = ({ stock }) => {
+const Table = ({ stock, itemProperties }) => {
   function useInstance(instance) {
     const { allColumns } = instance;
     let rowSpanHeaders = [];
@@ -17,6 +17,7 @@ const Table = ({ stock }) => {
     Object.assign(instance, { rowSpanHeaders });
   }
 
+  console.log(stock);
   const data = useMemo(
     () => [
       {
