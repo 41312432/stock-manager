@@ -47,8 +47,8 @@ class Storage {
     set(ref(this.db, `stock/${storageType}/${itemType}/${item.id}`), item);
   }
 
-  updateProperty(largeItemType, property) {
-    set(ref(this.db, `property/${largeItemType}`), property);
+  updateProperty(itemType, property) {
+    set(ref(this.db, `property/${itemType}`), property);
   }
 
   getItemLargeType(itemType) {
