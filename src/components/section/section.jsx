@@ -1,4 +1,3 @@
-import moment from "moment";
 import React, { useEffect, useState } from "react";
 import Table from "../table/table";
 import Top from "../top/top";
@@ -16,12 +15,10 @@ const Section = ({ storage, storageType, itemProperties }) => {
     };
   }, []);
 
-  //어차피 stock은 storageType으로 걸러져서 들어온 stock이니까 그리는데는 문제가 없고...
-
   return (
     <section className="section">
-      <Top />
-      <Table stock={stock} itemProperties={itemProperties} />
+      <Top storageType={storageType} />
+      <Table storage={storage} stock={stock} itemProperties={itemProperties} />
     </section>
   );
 };
