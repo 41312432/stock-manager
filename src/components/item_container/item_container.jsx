@@ -2,11 +2,11 @@ import React from "react";
 import ItemGroup from "../item_group/item_group";
 import "./item_container.scss";
 
-const ItemContainer = ({ items }) => {
+const ItemContainer = ({ items, itemName }) => {
   const groups = [];
 
   for (const id in items) {
-    groups.push(<ItemGroup item={items[id]} />);
+    groups.push(<ItemGroup item={items[id]} itemName={itemName} />);
   }
 
   return <div className="item-container">{groups}</div>;

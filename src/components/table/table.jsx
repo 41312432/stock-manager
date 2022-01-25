@@ -13,7 +13,12 @@ const Table = ({ storage, stock, itemProperties }) => {
       updated.push({
         col1: storage.getItemLargeType(item),
         col2: itemProperties[item] ? itemProperties[item].koShortName : " ",
-        col3: <ItemContainer items={stock[item]} />,
+        col3: (
+          <ItemContainer
+            items={stock[item]}
+            itemName={storage.getItemLargeType(item)}
+          />
+        ),
         col4: <EditButton />,
       });
     }
