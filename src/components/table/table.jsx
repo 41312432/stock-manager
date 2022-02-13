@@ -11,7 +11,7 @@ const Table = ({ storage, stock, itemProperties }) => {
     const updated = [...data];
     for (const item in stock) {
       updated.push({
-        col1: storage.getItemLargeType(item),
+        col1: itemProperties[item] ? itemProperties[item].koSortName : " ",
         col2: itemProperties[item] ? itemProperties[item].koShortName : " ",
         col3: (
           <ItemContainer

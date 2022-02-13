@@ -16,15 +16,6 @@ class Storage {
     this.temp = {};
   }
 
-  syncStocks(onUpdate) {
-    const query = ref(this.db, `stock`);
-    onValue(query, (snapshot) => {
-      const value = snapshot.val();
-      value && onUpdate(value);
-    });
-    return () => off(query);
-  }
-
   syncStocksByStorageType(onUpdate, storageType) {
     const query = ref(this.db, `stock/${storageType}`);
     onValue(query, (snapshot) => {
