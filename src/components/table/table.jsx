@@ -1,121 +1,29 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect, useState } from "react";
 import "./table.scss";
 import { useTable } from "react-table";
 import ItemContainer from "../item_container/item_container";
 import EditButton from "../edit_button/edit_button";
 
-const Table = (props) => {
-  function useInstance(instance) {
-    const { allColumns } = instance;
+const Table = ({ storage, stock, itemProperties }) => {
+  const [data, setData] = useState([]);
 
-    let rowSpanHeaders = [];
-
-    allColumns.forEach((column) => {
-      const { id, enableRowSpan } = column;
-
-      if (enableRowSpan) {
-        rowSpanHeaders.push({ id, topCellValue: null, topCellIndex: 0 });
-      }
-    });
-
-    Object.assign(instance, { rowSpanHeaders });
-  }
-
-  const data = useMemo(
-    () => [
-      {
-        col1: "케이크",
-        col2: "생크림",
-        col3: <ItemContainer />,
+  useEffect(() => {
+    const updated = [...data];
+    for (const item in stock) {
+      updated.push({
+        col1: itemProperties[item] ? itemProperties[item].koSortName : " ",
+        col2: itemProperties[item] ? itemProperties[item].koShortName : " ",
+        col3: (
+          <ItemContainer
+            items={stock[item]}
+            itemName={storage.getItemLargeType(item)}
+          />
+        ),
         col4: <EditButton />,
-      },
-      {
-        col1: "케이크",
-        col2: "딸기",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-      {
-        col1: "케이크",
-        col2: "망고",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-      {
-        col1: "케이크",
-        col2: "치즈",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-      {
-        col1: "케이크",
-        col2: "티라미스",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-      {
-        col1: "마카롱",
-        col2: "유자",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-      {
-        col1: "마카롱",
-        col2: "흑임자",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-      {
-        col1: "마카롱",
-        col2: "흑임자",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-      {
-        col1: "마카롱",
-        col2: "흑임자",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-      {
-        col1: "마카롱",
-        col2: "흑임자",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-      {
-        col1: "마카롱",
-        col2: "흑임자",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-      {
-        col1: "마카롱",
-        col2: "흑임자",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-      {
-        col1: "마카롱",
-        col2: "흑임자",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-      {
-        col1: "마카롱",
-        col2: "흑임자",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-      {
-        col1: "마카롱",
-        col2: "흑임자",
-        col3: <ItemContainer />,
-        col4: <EditButton />,
-      },
-    ],
-    []
-  );
+      });
+    }
+    setData(updated);
+  }, [stock]);
 
   const columns = useMemo(
     () => [
@@ -139,6 +47,18 @@ const Table = (props) => {
     ],
     []
   );
+
+  function useInstance(instance) {
+    const { allColumns } = instance;
+    let rowSpanHeaders = [];
+    allColumns.forEach((column) => {
+      const { id, enableRowSpan } = column;
+      if (enableRowSpan) {
+        rowSpanHeaders.push({ id, topCellValue: null, topCellIndex: 0 });
+      }
+    });
+    Object.assign(instance, { rowSpanHeaders });
+  }
 
   const {
     getTableProps,
