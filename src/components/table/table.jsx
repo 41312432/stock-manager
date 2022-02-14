@@ -8,7 +8,7 @@ const Table = ({ storage, stock, itemProperties }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const updated = [...data];
+    const updated = [];
     for (const item in stock) {
       updated.push({
         col1: itemProperties[item] ? itemProperties[item].koSortName : " ",
@@ -19,11 +19,17 @@ const Table = ({ storage, stock, itemProperties }) => {
             itemName={storage.getItemLargeType(item)}
           />
         ),
-        col4: <EditButton />,
+        col4: (
+          <EditButton
+            stock={stock[item]}
+            item={item}
+            itemProperty={itemProperties[item]}
+          />
+        ),
       });
     }
     setData(updated);
-  }, [stock]);
+  }, [stock, itemProperties]);
 
   const columns = useMemo(
     () => [
