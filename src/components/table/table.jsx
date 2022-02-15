@@ -21,6 +21,7 @@ const Table = ({ storage, stock, itemProperties }) => {
         ),
         col4: (
           <EditButton
+            storage={storage}
             stock={stock[item]}
             item={item}
             itemProperty={itemProperties[item]}
