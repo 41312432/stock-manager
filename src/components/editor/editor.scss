@@ -1,0 +1,74 @@
+.editor {
+  display: flex;
+  flex-direction: column;
+
+  height: 90%;
+
+  .pannel-container {
+    flex: 1;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid black;
+    border-radius: 7.5px;
+
+    .pannel {
+      display: flex;
+      flex-direction: row;
+
+      :first-child {
+        width: 30%;
+      }
+
+      :nth-child(2) {
+        width: 70%;
+      }
+    }
+  }
+
+  .monitor-property {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      white-space: nowrap;
+
+      margin: 5px;
+    }
+  }
+
+  .monitor-number {
+    display: flex;
+    flex-direction: row;
+    input {
+      text-align: center;
+      vertical-align: middle;
+      height: 100%;
+      width: 100%;
+      font-size: 6em;
+      border: none;
+
+      &[type="number"]::-webkit-outer-spin-button,
+      &[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    .number-button-container {
+      display: flex;
+      flex-direction: column;
+
+      div {
+        display: flex;
+        flex-direction: row;
+
+        button {
+          width: auto;
+        }
+      }
+    }
+  }
+}

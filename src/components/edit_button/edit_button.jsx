@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReactModal from "react-modal";
 import Editor from "../editor/editor";
 
-const EditButton = () => {
+const EditButton = ({ storage, item, stock, itemProperty }) => {
   const [showModal, setShowModal] = useState(false);
   const handleOpenEditor = () => {
     setShowModal(true);
@@ -42,11 +42,16 @@ const EditButton = () => {
             width: "75%",
             height: "60%",
             WebkitOverflowScrolling: "touch",
-            padding: "20px",
+            padding: "5px 20px",
           },
         }}
       >
-        <Editor />
+        <Editor
+          storage={storage}
+          item={item}
+          stock={stock}
+          itemProperty={itemProperty}
+        />
       </ReactModal>
     </>
   );
