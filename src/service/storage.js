@@ -38,6 +38,10 @@ class Storage {
     set(ref(this.db, `stock/${storageType}/${itemType}/${item.id}`), item);
   }
 
+  clearStock(storageType, itemType) {
+    remove(ref(this.db, `stock/${storageType}/${itemType}`));
+  }
+
   updateProperty(itemType, property) {
     set(ref(this.db, `property/${itemType}`), property);
   }
