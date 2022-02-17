@@ -4,15 +4,22 @@ import { useTable } from "react-table";
 import ItemContainer from "../item_container/item_container";
 import EditButton from "../edit_button/edit_button";
 
-const Table = ({ storage, stock, itemProperties }) => {
+const Table = ({ storage, stock, properties }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const updated = [];
-    for (const item in stock) {
+
+    const keys = Object.keys(properties).sort((a, b) => {
+      return a.substring(a.search(/[A-Z]/g)) < b.substring(b.search(/[A-Z]/g))
+        ? -1
+        : 1;
+    });
+
+    for (const item of keys) {
       updated.push({
-        col1: itemProperties[item] ? itemProperties[item].koSortName : " ",
-        col2: itemProperties[item] ? itemProperties[item].koShortName : " ",
+        col1: properties[item] ? properties[item].koSortName : " ",
+        col2: properties[item] ? properties[item].koShortName : " ",
         col3: (
           <ItemContainer
             items={stock[item]}
@@ -24,13 +31,13 @@ const Table = ({ storage, stock, itemProperties }) => {
             storage={storage}
             stock={stock[item]}
             item={item}
-            itemProperty={itemProperties[item]}
+            itemProperty={properties[item]}
           />
         ),
       });
     }
     setData(updated);
-  }, [stock, itemProperties]);
+  }, [stock, properties]);
 
   const columns = useMemo(
     () => [

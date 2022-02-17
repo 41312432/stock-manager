@@ -25,8 +25,8 @@ class Storage {
     return () => off(query);
   }
 
-  syncItemProperties(onUpdate) {
-    const query = ref(this.db, `property`);
+  syncPropertiesByStorageType(onUpdate, storageType) {
+    const query = ref(this.db, `property/${storageType}`);
     onValue(query, (snapshot) => {
       const value = snapshot.val();
       value && onUpdate(value);
@@ -42,8 +42,8 @@ class Storage {
     remove(ref(this.db, `stock/${storageType}/${itemType}`));
   }
 
-  updateProperty(itemType, property) {
-    set(ref(this.db, `property/${itemType}`), property);
+  updateProperty(storageType, itemType, property) {
+    set(ref(this.db, `property/${storageType}/${itemType}`), property);
   }
 
   getItemLargeType(itemType) {

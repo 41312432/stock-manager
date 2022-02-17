@@ -2,7 +2,7 @@ import "./tab_container.scss";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Section from "../section/section";
 
-const TabContainer = ({ storage, itemProperties }) => {
+const TabContainer = ({ storage }) => {
   return (
     <Tabs>
       <TabList>
@@ -13,39 +13,19 @@ const TabContainer = ({ storage, itemProperties }) => {
         <Tab>창고</Tab>
       </TabList>
       <TabPanel>
-        <Section
-          storage={storage}
-          storageType={"showcase"}
-          itemProperties={itemProperties}
-        />
+        <Section storage={storage} storageType={"showcase"} />
       </TabPanel>
       <TabPanel>
-        <Section
-          storage={storage}
-          storageType={"refridge"}
-          itemProperties={itemProperties}
-        />
+        <Section storage={storage} storageType={"refridge"} />
       </TabPanel>
       <TabPanel>
-        <Section
-          storage={storage}
-          storageType={"freezer"}
-          itemProperties={itemProperties}
-        />
+        <Section storage={storage} storageType={"freezer"} />
       </TabPanel>
       <TabPanel>
-        <Section
-          storage={storage}
-          storageType={"bar"}
-          itemProperties={itemProperties}
-        />
+        <Section storage={storage} storageType={"bar"} />
       </TabPanel>
       <TabPanel>
-        <Section
-          storage={storage}
-          storageType={"inven"}
-          itemProperties={itemProperties}
-        />
+        <Section storage={storage} storageType={"inven"} />
       </TabPanel>
     </Tabs>
   );
