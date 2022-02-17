@@ -26,7 +26,7 @@ class Storage {
   }
 
   syncPropertiesByStorageType(onUpdate, storageType) {
-    const query = ref(this.db, `properties/${storageType}`);
+    const query = ref(this.db, `property/${storageType}`);
     onValue(query, (snapshot) => {
       const value = snapshot.val();
       value && onUpdate(value);
