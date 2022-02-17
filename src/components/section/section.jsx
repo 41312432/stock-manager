@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from "../table/table";
 import Top from "../top/top";
+import Bottom from "../bottom/bottom";
 import "./section.scss";
 
 const Section = ({ storage, storageType }) => {
@@ -31,6 +32,7 @@ const Section = ({ storage, storageType }) => {
     <section className="section">
       <Top storageType={storageType} />
       <Table storage={storage} stock={stock} properties={properties} />
+      <Bottom />
     </section>
   );
 };
