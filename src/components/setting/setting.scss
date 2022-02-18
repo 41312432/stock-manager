@@ -1,0 +1,22 @@
+.setting {
+  display: flex;
+  flex-direction: column;
+
+  .pannel {
+    display: flex;
+    flex-direction: row;
+
+    .nameList {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+    }
+    .settingForm {
+      width: 50%;
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}

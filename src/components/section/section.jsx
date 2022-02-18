@@ -32,7 +32,11 @@ const Section = ({ storage, storageType }) => {
     <section className="section">
       <Top storageType={storageType} />
       <Table storage={storage} stock={stock} properties={properties} />
-      <Bottom />
+      <Bottom
+        storage={storage}
+        properties={properties}
+        storageType={storageType}
+      />
     </section>
   );
 };

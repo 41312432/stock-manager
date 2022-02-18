@@ -5,7 +5,7 @@ import Setting from "../setting/setting";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 
-const Setting_button = () => {
+const Setting_button = ({ storage, properties, storageType }) => {
   const [showModal, setShowModal] = useState(false);
   const handleOpenEditor = () => {
     setShowModal(true);
@@ -47,7 +47,11 @@ const Setting_button = () => {
           },
         }}
       >
-        <Setting />
+        <Setting
+          storage={storage}
+          properties={properties}
+          storageType={storageType}
+        />
       </ReactModal>
     </>
   );
