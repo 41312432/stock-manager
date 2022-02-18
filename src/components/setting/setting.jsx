@@ -63,6 +63,18 @@ const Setting = ({ storage, properties, storageType }) => {
     });
   };
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    if (
+      window.confirm(
+        "정말로 해당 아이템을 삭제하시겠습니까? \n아이템 속성을 포함한 현재 재고와 창고 상황도 삭제됩니다."
+      )
+    ) {
+      storage.removeProperty(storageType, codeRef.current.value);
+      storage.clearStock(storageType, codeRef.current.value);
+    }
+  };
+
   return (
     <>
       <section className="setting">
@@ -96,6 +108,7 @@ const Setting = ({ storage, properties, storageType }) => {
                 <input type="number" name="유통기한" ref={expDateRef} />
               </div>
               <button onClick={handleSubmit}>수정 / 생성</button>
+              <button onClick={handleDelete}>삭제</button>
             </form>
           </div>
         </div>

@@ -46,6 +46,10 @@ class Storage {
     set(ref(this.db, `property/${storageType}/${itemType}`), property);
   }
 
+  removeProperty(storageType, itemType) {
+    remove(ref(this.db, `property/${storageType}/${itemType}`));
+  }
+
   getItemLargeType(itemType) {
     return itemType.substring(itemType.search(/[A-Z]/g));
   }
