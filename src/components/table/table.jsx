@@ -23,6 +23,7 @@ const Table = ({ storage, stock, properties }) => {
         col3: (
           <ItemContainer
             items={stock[item]}
+            properties={properties[item]}
             itemName={storage.getItemLargeType(item)}
           />
         ),
