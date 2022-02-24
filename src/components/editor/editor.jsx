@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import "./editor.scss";
 
@@ -37,7 +38,7 @@ const Editor = ({ storage, item, stock, itemProperty }) => {
     } else {
       storage.updateStock(itemProperty.storageType, item, {
         amount: controlNum,
-        createDate: Date.now(),
+        createDate: moment().format("YYYY-MM-DD"),
         id: Date.now(),
       });
 
