@@ -6,12 +6,36 @@ import moment from "moment";
 
 const ItemGroup = ({ item, itemName, properties }) => {
   const [expClass, setExpClass] = useState("");
-  const imgs = [];
-  const src = `../../../icon/${itemName}.png`;
+  const [icons, setIcons] = useState([]);
 
-  for (let i = 0; i < item.amount; i++) {
-    imgs.push(<img src={src} alt="" />);
-  }
+  useEffect(() => {
+    const src = `../../../icon/${itemName}.png`;
+
+    const temp = [];
+    const box = parseInt(item.amount / properties.numPerBox);
+    const remain = item.amount % properties.numPerBox;
+
+    if (box) {
+      temp.push(<img src="../../../icon/Box.png" alt="" />);
+
+      if (box > 1) {
+        temp.push(<p> x {box}</p>);
+      }
+    }
+
+    if (remain <= 3) {
+      for (let i = 0; i < remain; i++) {
+        temp.push(<img src={src} alt="" />);
+      }
+    } else {
+      temp.push(<img src={src} alt="" />);
+      temp.push(<p> x {remain}</p>);
+    }
+
+    console.log(temp);
+
+    setIcons(temp);
+  }, []);
 
   useEffect(() => {
     const dueDate = moment(item.createDate)
@@ -26,11 +50,11 @@ const ItemGroup = ({ item, itemName, properties }) => {
     } else {
       setExpClass("item-group");
     }
-  });
+  }, []);
 
   return (
     <div className={expClass} data-tip="React-tooltip">
-      {imgs}
+      {icons}
       <ReactTooltip place="top" type="info" effect="float">
         <ul>
           <li>
