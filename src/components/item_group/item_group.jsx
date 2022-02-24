@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactTooltip from "react-tooltip";
 import Moment from "react-moment";
 import "./item_group.scss";
 import moment from "moment";
 
 const ItemGroup = ({ item, itemName, properties }) => {
+  const [expClass, setExpClass] = useState("");
   const imgs = [];
   const src = `../../../icon/${itemName}.png`;
 
@@ -12,10 +13,23 @@ const ItemGroup = ({ item, itemName, properties }) => {
     imgs.push(<img src={src} alt="" />);
   }
 
-  console.log(item);
+  useEffect(() => {
+    const dueDate = moment(item.createDate)
+      .add(properties.expDate, "days")
+      .endOf("day")
+      .diff(moment(), "days");
+
+    if (dueDate == 0) {
+      setExpClass("item-group eve");
+    } else if (dueDate < 0) {
+      setExpClass("item-group expired");
+    } else {
+      setExpClass("item-group");
+    }
+  });
 
   return (
-    <div className="item-group" data-tip="React-tooltip">
+    <div className={expClass} data-tip="React-tooltip">
       {imgs}
       <ReactTooltip place="top" type="info" effect="float">
         <ul>
