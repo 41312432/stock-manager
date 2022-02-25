@@ -46,7 +46,7 @@ const ItemGroupMonitor = ({ storage, item, itemName, properties }) => {
           </Moment>
         </p>
         <label htmlFor="개수">개수 : </label>
-        <input type="number" name="개수" ref={amountRef} />
+        <input type="number" name="개수" ref={amountRef} min="1" />
         <button onClick={handleSubmit}>적용하기</button>
       </form>
     </div>
