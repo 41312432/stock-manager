@@ -126,7 +126,7 @@ const ItemGroup = ({ item, itemName, properties }) => {
           },
         }}
       >
-        <ItemGroupMonitor />
+        <ItemGroupMonitor item={item} properties={properties} />
       </ReactModal>
     </>
   );
