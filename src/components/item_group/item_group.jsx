@@ -6,7 +6,7 @@ import "./item_group.scss";
 import moment from "moment";
 import ItemGroupMonitor from "../item_group_monitor/item_group_monitor";
 
-const ItemGroup = ({ item, itemName, properties }) => {
+const ItemGroup = ({ storage, item, itemName, properties }) => {
   const [showModal, setShowModal] = useState(false);
   const [expClass, setExpClass] = useState("");
   const [icons, setIcons] = useState([]);
@@ -19,7 +19,7 @@ const ItemGroup = ({ item, itemName, properties }) => {
   };
 
   useEffect(() => {
-    const src = `../../../icon/${itemName}.png`;
+    const src = `../../../icon/${storage.getItemLargeType(itemName)}.png`;
 
     const temp = [];
     const box = parseInt(item.amount / properties.numPerBox);
@@ -43,7 +43,7 @@ const ItemGroup = ({ item, itemName, properties }) => {
     }
 
     setIcons(temp);
-  }, []);
+  }, [item]);
 
   useEffect(() => {
     const dueDate = moment(item.createDate)
@@ -126,7 +126,12 @@ const ItemGroup = ({ item, itemName, properties }) => {
           },
         }}
       >
-        <ItemGroupMonitor item={item} properties={properties} />
+        <ItemGroupMonitor
+          storage={storage}
+          item={item}
+          itemName={itemName}
+          properties={properties}
+        />
       </ReactModal>
     </>
   );

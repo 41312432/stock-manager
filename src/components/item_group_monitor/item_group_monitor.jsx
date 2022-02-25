@@ -1,19 +1,26 @@
 import moment from "moment";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Moment from "react-moment";
 import { ko } from "date-fns/esm/locale";
 import "./item_group_monitor.scss";
 
-const ItemGroupMonitor = ({ item, properties }) => {
+const ItemGroupMonitor = ({ storage, item, itemName, properties }) => {
   const [createDate, setCreateDate] = useState(new Date(item.createDate));
-
   const amountRef = useRef();
-  amountRef.current.value = item.amount;
+
+  useEffect(() => {
+    amountRef.current.value = item.amount;
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    storage.updateStock(properties.storageType, itemName, {
+      ...item,
+      createDate: moment(createDate).locale("ko").format("YYYY-MM-DD"),
+      amount: amountRef.current.value,
+    });
   };
   return (
     <div>

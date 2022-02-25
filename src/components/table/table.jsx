@@ -22,9 +22,10 @@ const Table = ({ storage, stock, properties }) => {
         col2: properties[item] ? properties[item].koShortName : " ",
         col3: (
           <ItemContainer
+            storage={storage}
             items={stock[item]}
             properties={properties[item]}
-            itemName={storage.getItemLargeType(item)}
+            itemName={item}
           />
         ),
         col4: (
